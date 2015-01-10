@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="academicyear" EntityType="Model.Store.academicyear" store:Type="Tables" Schema="school details" />
+    <EntitySet Name="billingcycles" EntityType="Model.Store.billingcycles" store:Type="Tables" Schema="school details" />
+    <EntitySet Name="class" EntityType="Model.Store.class" store:Type="Tables" Schema="school details" />
+    <EntitySet Name="feesstructure" EntityType="Model.Store.feesstructure" store:Type="Tables" Schema="school details" />
+    <EntitySet Name="guardiandetails" EntityType="Model.Store.guardiandetails" store:Type="Tables" Schema="school details" />
+    <EntitySet Name="stream" EntityType="Model.Store.stream" store:Type="Tables" Schema="school details" />
+    <EntitySet Name="students" EntityType="Model.Store.students" store:Type="Tables" Schema="school details" />
+    <EntitySet Name="transactionhistory" EntityType="Model.Store.transactionhistory" store:Type="Tables" Schema="school details" />
+    <EntitySet Name="user_role" EntityType="Model.Store.user_role" store:Type="Tables" Schema="school details" />
+    <EntitySet Name="users" EntityType="Model.Store.users" store:Type="Tables" Schema="school details" />
+    <AssociationSet Name="users_ibfk_2" Association="Model.Store.users_ibfk_2">
+      <End Role="user_role" EntitySet="user_role" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="academicyear">
+    <Key>
+      <PropertyRef Name="no" />
+    </Key>
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="StartingDate" Type="date" Nullable="false" />
+    <Property Name="EndingDate" Type="date" Nullable="false" />
+    <Property Name="no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="billingcycles">
+    <Key>
+      <PropertyRef Name="no" />
+    </Key>
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="AcademicYear" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="class">
+    <Key>
+      <PropertyRef Name="no" />
+    </Key>
+    <Property Name="no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Code" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="feesstructure">
+    <Key>
+      <PropertyRef Name="no" />
+    </Key>
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="Applicability" Type="int" Nullable="false" />
+    <Property Name="no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="guardiandetails">
+    <Key>
+      <PropertyRef Name="guardiansNo" />
+    </Key>
+    <Property Name="RegistrationNumber" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="FathersName(MaleGuardian)" Type="varchar" MaxLength="200" />
+    <Property Name="MothersName(FemaleGuardian)" Type="varchar" MaxLength="200" />
+    <Property Name="ContactDetail" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="AlternativeContact" Type="varchar" MaxLength="200" />
+    <Property Name="ContactEmail" Type="varchar" MaxLength="200" />
+    <Property Name="guardiansNo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="stream">
+    <Key>
+      <PropertyRef Name="no" />
+    </Key>
+    <Property Name="no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Code" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="students">
+    <Key>
+      <PropertyRef Name="Adm No" />
+    </Key>
+    <Property Name="Adm No" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StudentsName" Type="varchar" MaxLength="200" />
+    <Property Name="Surname" Type="varchar" MaxLength="200" />
+    <Property Name="RegistrationNumber" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Gender" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="MedicalDetails" Type="varchar" Nullable="false" MaxLength="5000" />
+    <Property Name="AdmissionDate" Type="date" Nullable="false" />
+    <Property Name="DateEntered" Type="timestamp" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AcademicYear" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="AcademicLevel" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="Stream" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="transactionhistory">
+    <Key>
+      <PropertyRef Name="transactionNO" />
+    </Key>
+    <Property Name="RegistrationNumber" Type="int" Nullable="false" />
+    <Property Name="AmountPaid" Type="int" Nullable="false" />
+    <Property Name="PaymentFor" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="PaymentMethod" Type="varchar" MaxLength="200" />
+    <Property Name="MethodDetails" Type="varchar" MaxLength="200" />
+    <Property Name="DatePaid" Type="date" Nullable="false" />
+    <Property Name="Datestamp" Type="timestamp" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="transactionNO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Balance" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_role">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="desc" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="password" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="created" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="lastupdate" Type="timestamp" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="status" Type="bool" Nullable="false" />
+  </EntityType>
+  <Association Name="users_ibfk_2">
+    <End Role="user_role" Type="Model.Store.user_role" Multiplicity="1" />
+    <End Role="users" Type="Model.Store.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user_role">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

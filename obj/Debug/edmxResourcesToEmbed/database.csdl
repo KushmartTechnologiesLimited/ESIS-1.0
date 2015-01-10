@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="schoolfeesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="schoolfeesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="bills" EntityType="schoolfeesModel.bill" />
+    <EntitySet Name="classes" EntityType="schoolfeesModel.class" />
+    <EntitySet Name="class_teacher" EntityType="schoolfeesModel.class_teacher" />
+    <EntitySet Name="days" EntityType="schoolfeesModel.day" />
+    <EntitySet Name="desinates" EntityType="schoolfeesModel.desinate" />
+    <EntitySet Name="fathers" EntityType="schoolfeesModel.father" />
+    <EntitySet Name="fees_accountings" EntityType="schoolfeesModel.fees_accounting" />
+    <EntitySet Name="lessons" EntityType="schoolfeesModel.lesson" />
+    <EntitySet Name="marks" EntityType="schoolfeesModel.mark" />
+    <EntitySet Name="mothers" EntityType="schoolfeesModel.mother" />
+    <EntitySet Name="parents" EntityType="schoolfeesModel.parent" />
+    <EntitySet Name="rates" EntityType="schoolfeesModel.rate" />
+    <EntitySet Name="results" EntityType="schoolfeesModel.result" />
+    <EntitySet Name="rooms" EntityType="schoolfeesModel.room" />
+    <EntitySet Name="streams" EntityType="schoolfeesModel.stream" />
+    <EntitySet Name="student_class" EntityType="schoolfeesModel.student_class" />
+    <EntitySet Name="student_fee" EntityType="schoolfeesModel.student_fee" />
+    <EntitySet Name="students" EntityType="schoolfeesModel.student" />
+    <EntitySet Name="subjects" EntityType="schoolfeesModel.subject" />
+    <EntitySet Name="subject_type" EntityType="schoolfeesModel.subject_type" />
+    <EntitySet Name="teachers" EntityType="schoolfeesModel.teacher" />
+    <EntitySet Name="tr_attendance" EntityType="schoolfeesModel.tr_attendance" />
+    <EntitySet Name="types" EntityType="schoolfeesModel.type" />
+    <EntitySet Name="user_role" EntityType="schoolfeesModel.user_role" />
+    <EntitySet Name="users" EntityType="schoolfeesModel.user" />
+    <EntitySet Name="view4" EntityType="schoolfeesModel.view4" />
+    <AssociationSet Name="lesson_ibfk_2" Association="schoolfeesModel.lesson_ibfk_2">
+      <End Role="rooms" EntitySet="rooms" />
+      <End Role="lesson" EntitySet="lessons" />
+    </AssociationSet>
+    <AssociationSet Name="rooms_ibfk_1" Association="schoolfeesModel.rooms_ibfk_1">
+      <End Role="subject_type" EntitySet="subject_type" />
+      <End Role="rooms" EntitySet="rooms" />
+    </AssociationSet>
+    <AssociationSet Name="subject_ibfk_1" Association="schoolfeesModel.subject_ibfk_1">
+      <End Role="subject_type" EntitySet="subject_type" />
+      <End Role="subject" EntitySet="subjects" />
+    </AssociationSet>
+    <AssociationSet Name="users_ibfk_2" Association="schoolfeesModel.users_ibfk_2">
+      <End Role="user_role" EntitySet="user_role" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="bill">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="year" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="term" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="class_id" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="admno" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="amount" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="class">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="level" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="class_teacher">
+    <Key>
+      <PropertyRef Name="national_id" />
+      <PropertyRef Name="class_code" />
+      <PropertyRef Name="stream_code" />
+      <PropertyRef Name="at" />
+    </Key>
+    <Property Name="national_id" Type="Int32" Nullable="false" />
+    <Property Name="class_code" Type="Int32" Nullable="false" />
+    <Property Name="stream_code" Type="Int32" Nullable="false" />
+    <Property Name="at" Type="DateTime" Nullable="false" p1:StoreGeneratedPattern="Identity" Precision="0" />
+  </EntityType>
+  <EntityType Name="day">
+    <Key>
+      <PropertyRef Name="day_no" />
+    </Key>
+    <Property Name="day_no" Type="Int32" Nullable="false" />
+    <Property Name="day1" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="desinate">
+    <Key>
+      <PropertyRef Name="d_no" />
+    </Key>
+    <Property Name="d_no" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="tr_id_no" Type="Int32" Nullable="false" />
+    <Property Name="sub_code" Type="Int32" Nullable="false" />
+    <Property Name="class_code" Type="Int32" Nullable="false" />
+    <Property Name="str_code" Type="Int32" Nullable="false" />
+    <Property Name="updatetime" Type="DateTime" Nullable="false" p1:StoreGeneratedPattern="Identity" Precision="0" />
+  </EntityType>
+  <EntityType Name="father">
+    <Key>
+      <PropertyRef Name="f_Id_No" />
+    </Key>
+    <Property Name="f_Id_No" Type="Int32" Nullable="false" />
+    <Property Name="names" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="tel" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="work" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="employer" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Resident_id" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="fees_accounting">
+    <Key>
+      <PropertyRef Name="fees_id" />
+    </Key>
+    <Property Name="admno" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="Details" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="Method" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="acc_Name" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="Acc_no" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="Tran_no" Type="Int32" Nullable="false" />
+    <Property Name="amount" Type="Int32" Nullable="false" />
+    <Property Name="payable" Type="Int32" Nullable="false" />
+    <Property Name="balance" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="datestamp" Type="DateTime" Nullable="false" p1:StoreGeneratedPattern="Identity" Precision="0" />
+    <Property Name="fees_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="lesson">
+    <Key>
+      <PropertyRef Name="block_id" />
+      <PropertyRef Name="room_id" />
+      <PropertyRef Name="d_no" />
+      <PropertyRef Name="day_no" />
+    </Key>
+    <Property Name="block_id" Type="Int32" Nullable="false" />
+    <Property Name="room_id" Type="Int32" Nullable="false" />
+    <Property Name="d_no" Type="Int32" Nullable="false" />
+    <Property Name="day_no" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="room" Relationship="schoolfeesModel.lesson_ibfk_2" FromRole="lesson" ToRole="rooms" />
+  </EntityType>
+  <EntityType Name="mark">
+    <Key>
+      <PropertyRef Name="admno" />
+      <PropertyRef Name="class_code" />
+      <PropertyRef Name="year" />
+      <PropertyRef Name="term" />
+      <PropertyRef Name="Exam_no" />
+      <PropertyRef Name="Subject_code" />
+      <PropertyRef Name="score" />
+      <PropertyRef Name="lastupdate" />
+    </Key>
+    <Property Name="admno" Type="Int32" Nullable="false" />
+    <Property Name="class_code" Type="Int32" Nullable="false" />
+    <Property Name="year" Type="Int32" Nullable="false" />
+    <Property Name="term" Type="Int32" Nullable="false" />
+    <Property Name="Exam_no" Type="Int32" Nullable="false" />
+    <Property Name="Subject_code" Type="Int32" Nullable="false" />
+    <Property Name="score" Type="Int32" Nullable="false" />
+    <Property Name="lastupdate" Type="DateTime" Nullable="false" p1:StoreGeneratedPattern="Identity" Precision="0" />
+  </EntityType>
+  <EntityType Name="mother">
+    <Key>
+      <PropertyRef Name="Id_No" />
+    </Key>
+    <Property Name="Id_No" Type="Int32" Nullable="false" />
+    <Property Name="names" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="tel" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="work" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="employer" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="resident_id" Type="String" Nullable="false" MaxLength="70" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="parent">
+    <Key>
+      <PropertyRef Name="admno" />
+      <PropertyRef Name="f_id_no" />
+      <PropertyRef Name="id_no" />
+    </Key>
+    <Property Name="admno" Type="Int32" Nullable="false" />
+    <Property Name="f_id_no" Type="Int32" Nullable="false" />
+    <Property Name="id_no" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rate">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="L_id" />
+      <PropertyRef Name="T_id" />
+      <PropertyRef Name="amount" />
+      <PropertyRef Name="stamp" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="L_id" Type="Int32" Nullable="false" />
+    <Property Name="T_id" Type="Int32" Nullable="false" />
+    <Property Name="amount" Type="Int32" Nullable="false" />
+    <Property Name="stamp" Type="DateTime" Nullable="false" p1:StoreGeneratedPattern="Identity" Precision="0" />
+  </EntityType>
+  <EntityType Name="result">
+    <Key>
+      <PropertyRef Name="examno" />
+    </Key>
+    <Property Name="admNo" Type="Int32" Nullable="false" />
+    <Property Name="class" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="year" Type="Int32" Nullable="false" />
+    <Property Name="term" Type="Int32" Nullable="false" />
+    <Property Name="exam" Type="Int32" Nullable="false" />
+    <Property Name="maths" Type="Int32" />
+    <Property Name="eng" Type="Int32" />
+    <Property Name="kisw" Type="Int32" />
+    <Property Name="social" Type="Int32" />
+    <Property Name="sci" Type="Int32" />
+    <Property Name="total" Type="Int32" />
+    <Property Name="position" Type="Boolean" />
+    <Property Name="examno" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="grammer" Type="Int32" Nullable="false" />
+    <Property Name="reading" Type="Int32" Nullable="false" />
+    <Property Name="composition" Type="Int32" Nullable="false" />
+    <Property Name="lugha" Type="Int32" Nullable="false" />
+    <Property Name="kusoma" Type="Int32" Nullable="false" />
+    <Property Name="insha" Type="Int32" Nullable="false" />
+    <Property Name="cre" Type="Int32" Nullable="false" />
+    <Property Name="C0MP" Type="Int32" Nullable="false" />
+    <Property Name="MUSIC" Type="Int32" Nullable="false" />
+    <Property Name="SWIMMING" Type="Int32" Nullable="false" />
+    <Property Name="PE" Type="Int32" Nullable="false" />
+    <Property Name="examcode" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="room">
+    <Key>
+      <PropertyRef Name="room_id" />
+    </Key>
+    <Property Name="room_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="room_name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="room_code" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="type_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="lessons" Relationship="schoolfeesModel.lesson_ibfk_2" FromRole="rooms" ToRole="lesson" />
+    <NavigationProperty Name="subject_type" Relationship="schoolfeesModel.rooms_ibfk_1" FromRole="rooms" ToRole="subject_type" />
+  </EntityType>
+  <EntityType Name="stream">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="strm_ids" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="student_class">
+    <Key>
+      <PropertyRef Name="admno" />
+    </Key>
+    <Property Name="admno" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="class_code" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="str_code" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="student_fee">
+    <Key>
+      <PropertyRef Name="admno" />
+      <PropertyRef Name="fee_id" />
+      <PropertyRef Name="amount" />
+      <PropertyRef Name="status" />
+      <PropertyRef Name="datecreated" />
+      <PropertyRef Name="datepaid" />
+    </Key>
+    <Property Name="tr_id" Type="Int32" />
+    <Property Name="admno" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="fee_id" Type="Int32" Nullable="false" />
+    <Property Name="amount" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <Property Name="datecreated" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="datepaid" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="regno" />
+    </Key>
+    <Property Name="admno" Type="String" MaxLength="53" Unicode="false" FixedLength="false" />
+    <Property Name="regno" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="C_names" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="gender" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Birthno" Type="String" MaxLength="52" Unicode="false" FixedLength="false" />
+    <Property Name="adm_date" Type="DateTime" Precision="0" />
+    <Property Name="class_code" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="str_code" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="pic" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="subject">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="60" Unicode="false" FixedLength="false" />
+    <Property Name="description" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="type_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="subject_type" Relationship="schoolfeesModel.subject_ibfk_1" FromRole="subject" ToRole="subject_type" />
+  </EntityType>
+  <EntityType Name="subject_type">
+    <Key>
+      <PropertyRef Name="t_id" />
+    </Key>
+    <Property Name="t_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="rooms" Relationship="schoolfeesModel.rooms_ibfk_1" FromRole="subject_type" ToRole="rooms" />
+    <NavigationProperty Name="subjects" Relationship="schoolfeesModel.subject_ibfk_1" FromRole="subject_type" ToRole="subject" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="national_id" />
+    </Key>
+    <Property Name="national_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="gender" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+    <Property Name="tel" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="emp_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="box" Type="Int32" />
+    <Property Name="city" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="village" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="p_code" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="qualification" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="year_out" Type="Int16" Nullable="false" />
+    <Property Name="institution" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="pic" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tr_attendance">
+    <Key>
+      <PropertyRef Name="id_no" />
+      <PropertyRef Name="tr_date" />
+      <PropertyRef Name="morning" />
+      <PropertyRef Name="afternoon" />
+      <PropertyRef Name="track_time" />
+    </Key>
+    <Property Name="id_no" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="tr_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="morning" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="false" />
+    <Property Name="afternoon" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="false" />
+    <Property Name="reason" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+    <Property Name="track_time" Type="DateTime" Nullable="false" p1:StoreGeneratedPattern="Identity" Precision="0" />
+  </EntityType>
+  <EntityType Name="type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Type_Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="category" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="user_role">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="desc" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="users" Relationship="schoolfeesModel.users_ibfk_2" FromRole="user_role" ToRole="users" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" p1:StoreGeneratedPattern="Identity" Precision="0" />
+    <Property Name="lastupdate" Type="DateTime" Nullable="false" p1:StoreGeneratedPattern="Identity" Precision="0" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="user_role" Relationship="schoolfeesModel.users_ibfk_2" FromRole="users" ToRole="user_role" />
+  </EntityType>
+  <EntityType Name="view4">
+    <Key>
+      <PropertyRef Name="ADMNO" />
+    </Key>
+    <Property Name="ADMNO" Type="Int32" Nullable="false" />
+    <Property Name="n" Type="Decimal" Precision="32" Scale="0" />
+    <Property Name="m" Type="Decimal" Precision="32" Scale="0" />
+    <Property Name="b" Type="Decimal" Precision="32" Scale="0" />
+    <Property Name="AVG" Type="Decimal" Precision="38" Scale="4" />
+  </EntityType>
+  <Association Name="lesson_ibfk_2">
+    <End Role="rooms" Type="schoolfeesModel.room" Multiplicity="1" />
+    <End Role="lesson" Type="schoolfeesModel.lesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rooms">
+        <PropertyRef Name="room_id" />
+      </Principal>
+      <Dependent Role="lesson">
+        <PropertyRef Name="room_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rooms_ibfk_1">
+    <End Role="subject_type" Type="schoolfeesModel.subject_type" Multiplicity="1" />
+    <End Role="rooms" Type="schoolfeesModel.room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subject_type">
+        <PropertyRef Name="t_id" />
+      </Principal>
+      <Dependent Role="rooms">
+        <PropertyRef Name="type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="subject_ibfk_1">
+    <End Role="subject_type" Type="schoolfeesModel.subject_type" Multiplicity="1" />
+    <End Role="subject" Type="schoolfeesModel.subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subject_type">
+        <PropertyRef Name="t_id" />
+      </Principal>
+      <Dependent Role="subject">
+        <PropertyRef Name="type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="users_ibfk_2">
+    <End Role="user_role" Type="schoolfeesModel.user_role" Multiplicity="1" />
+    <End Role="users" Type="schoolfeesModel.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user_role">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

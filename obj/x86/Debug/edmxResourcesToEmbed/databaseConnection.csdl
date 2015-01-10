@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="school_detailsEntities2" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="academicyears" EntityType="Model.academicyear" />
+    <EntitySet Name="billingcycles" EntityType="Model.billingcycle" />
+    <EntitySet Name="classes" EntityType="Model.class" />
+    <EntitySet Name="feesstructures" EntityType="Model.feesstructure" />
+    <EntitySet Name="guardiandetails" EntityType="Model.guardiandetail" />
+    <EntitySet Name="streams" EntityType="Model.stream" />
+    <EntitySet Name="students" EntityType="Model.student" />
+    <EntitySet Name="transactionhistories" EntityType="Model.transactionhistory" />
+    <EntitySet Name="user_role" EntityType="Model.user_role" />
+    <EntitySet Name="users" EntityType="Model.user" />
+    <AssociationSet Name="users_ibfk_2" Association="Model.users_ibfk_2">
+      <End Role="user_role" EntitySet="user_role" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="academicyear">
+    <Key>
+      <PropertyRef Name="no" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="StartingDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndingDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="no" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="billingcycle">
+    <Key>
+      <PropertyRef Name="no" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="AcademicYear" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="no" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="class">
+    <Key>
+      <PropertyRef Name="no" />
+    </Key>
+    <Property Name="no" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Code" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="feesstructure">
+    <Key>
+      <PropertyRef Name="no" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="Applicability" Type="Int32" Nullable="false" />
+    <Property Name="no" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="guardiandetail">
+    <Key>
+      <PropertyRef Name="guardiansNo" />
+    </Key>
+    <Property Name="RegistrationNumber" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="FathersName_MaleGuardian_" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="MothersName_FemaleGuardian_" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="ContactDetail" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="AlternativeContact" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="ContactEmail" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="guardiansNo" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="stream">
+    <Key>
+      <PropertyRef Name="no" />
+    </Key>
+    <Property Name="no" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Code" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="Adm_No" />
+    </Key>
+    <Property Name="Adm_No" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentsName" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Surname" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="RegistrationNumber" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MedicalDetails" Type="String" Nullable="false" MaxLength="5000" Unicode="false" FixedLength="false" />
+    <Property Name="AdmissionDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DateEntered" Type="DateTime" Nullable="false" p1:StoreGeneratedPattern="Identity" Precision="0" />
+    <Property Name="AcademicYear" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="AcademicLevel" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Stream" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="transactionhistory">
+    <Key>
+      <PropertyRef Name="transactionNO" />
+    </Key>
+    <Property Name="RegistrationNumber" Type="Int32" Nullable="false" />
+    <Property Name="AmountPaid" Type="Int32" Nullable="false" />
+    <Property Name="PaymentFor" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="PaymentMethod" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="MethodDetails" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="DatePaid" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Datestamp" Type="DateTime" Nullable="false" p1:StoreGeneratedPattern="Identity" Precision="0" />
+    <Property Name="transactionNO" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Balance" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_role">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="desc" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="users" Relationship="Model.users_ibfk_2" FromRole="user_role" ToRole="users" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" p1:StoreGeneratedPattern="Identity" Precision="0" />
+    <Property Name="lastupdate" Type="DateTime" Nullable="false" p1:StoreGeneratedPattern="Identity" Precision="0" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="user_role" Relationship="Model.users_ibfk_2" FromRole="users" ToRole="user_role" />
+  </EntityType>
+  <Association Name="users_ibfk_2">
+    <End Role="user_role" Type="Model.user_role" Multiplicity="1" />
+    <End Role="users" Type="Model.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user_role">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

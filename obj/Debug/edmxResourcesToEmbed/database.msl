@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="schoolfeesModelStoreContainer" CdmEntityContainer="schoolfeesEntities">
+    <EntitySetMapping Name="bills">
+      <EntityTypeMapping TypeName="schoolfeesModel.bill">
+        <MappingFragment StoreEntitySet="bill">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="term" ColumnName="term" />
+          <ScalarProperty Name="class_id" ColumnName="class_id" />
+          <ScalarProperty Name="admno" ColumnName="admno" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="classes">
+      <EntityTypeMapping TypeName="schoolfeesModel.class">
+        <MappingFragment StoreEntitySet="class">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="level" ColumnName="level" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="class_teacher">
+      <EntityTypeMapping TypeName="schoolfeesModel.class_teacher">
+        <MappingFragment StoreEntitySet="class_teacher">
+          <ScalarProperty Name="national_id" ColumnName="national_id" />
+          <ScalarProperty Name="class_code" ColumnName="class_code" />
+          <ScalarProperty Name="stream_code" ColumnName="stream_code" />
+          <ScalarProperty Name="at" ColumnName="at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="days">
+      <EntityTypeMapping TypeName="schoolfeesModel.day">
+        <MappingFragment StoreEntitySet="days">
+          <ScalarProperty Name="day_no" ColumnName="day_no" />
+          <ScalarProperty Name="day1" ColumnName="day" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="desinates">
+      <EntityTypeMapping TypeName="schoolfeesModel.desinate">
+        <MappingFragment StoreEntitySet="desinate">
+          <ScalarProperty Name="d_no" ColumnName="d_no" />
+          <ScalarProperty Name="tr_id_no" ColumnName="tr_id_no" />
+          <ScalarProperty Name="sub_code" ColumnName="sub_code" />
+          <ScalarProperty Name="class_code" ColumnName="class_code" />
+          <ScalarProperty Name="str_code" ColumnName="str_code" />
+          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fathers">
+      <EntityTypeMapping TypeName="schoolfeesModel.father">
+        <MappingFragment StoreEntitySet="father">
+          <ScalarProperty Name="f_Id_No" ColumnName="f_Id_No" />
+          <ScalarProperty Name="names" ColumnName="names" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="work" ColumnName="work" />
+          <ScalarProperty Name="employer" ColumnName="employer" />
+          <ScalarProperty Name="Resident_id" ColumnName="Resident_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fees_accountings">
+      <EntityTypeMapping TypeName="schoolfeesModel.fees_accounting">
+        <MappingFragment StoreEntitySet="fees accounting">
+          <ScalarProperty Name="admno" ColumnName="admno" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Method" ColumnName="Method" />
+          <ScalarProperty Name="acc_Name" ColumnName="acc_Name" />
+          <ScalarProperty Name="Acc_no" ColumnName="Acc_no" />
+          <ScalarProperty Name="Tran_no" ColumnName="Tran_no" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="payable" ColumnName="payable" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="datestamp" ColumnName="datestamp" />
+          <ScalarProperty Name="fees_id" ColumnName="fees_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lessons">
+      <EntityTypeMapping TypeName="schoolfeesModel.lesson">
+        <MappingFragment StoreEntitySet="lesson">
+          <ScalarProperty Name="block_id" ColumnName="block_id" />
+          <ScalarProperty Name="room_id" ColumnName="room_id" />
+          <ScalarProperty Name="d_no" ColumnName="d_no" />
+          <ScalarProperty Name="day_no" ColumnName="day_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marks">
+      <EntityTypeMapping TypeName="schoolfeesModel.mark">
+        <MappingFragment StoreEntitySet="marks">
+          <ScalarProperty Name="admno" ColumnName="admno" />
+          <ScalarProperty Name="class_code" ColumnName="class_code" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="term" ColumnName="term" />
+          <ScalarProperty Name="Exam_no" ColumnName="Exam_no" />
+          <ScalarProperty Name="Subject_code" ColumnName="Subject_code" />
+          <ScalarProperty Name="score" ColumnName="score" />
+          <ScalarProperty Name="lastupdate" ColumnName="lastupdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mothers">
+      <EntityTypeMapping TypeName="schoolfeesModel.mother">
+        <MappingFragment StoreEntitySet="mother">
+          <ScalarProperty Name="Id_No" ColumnName="Id_No" />
+          <ScalarProperty Name="names" ColumnName="names" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="work" ColumnName="work" />
+          <ScalarProperty Name="employer" ColumnName="employer" />
+          <ScalarProperty Name="resident_id" ColumnName="resident_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="parents">
+      <EntityTypeMapping TypeName="schoolfeesModel.parent">
+        <MappingFragment StoreEntitySet="parents">
+          <ScalarProperty Name="admno" ColumnName="admno" />
+          <ScalarProperty Name="f_id_no" ColumnName="f_id_no" />
+          <ScalarProperty Name="id_no" ColumnName="id_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rates">
+      <EntityTypeMapping TypeName="schoolfeesModel.rate">
+        <MappingFragment StoreEntitySet="rates">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="L_id" ColumnName="L_id" />
+          <ScalarProperty Name="T_id" ColumnName="T_id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="stamp" ColumnName="stamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="results">
+      <EntityTypeMapping TypeName="schoolfeesModel.result">
+        <MappingFragment StoreEntitySet="results">
+          <ScalarProperty Name="admNo" ColumnName="admNo" />
+          <ScalarProperty Name="class" ColumnName="class" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="term" ColumnName="term" />
+          <ScalarProperty Name="exam" ColumnName="exam" />
+          <ScalarProperty Name="maths" ColumnName="maths" />
+          <ScalarProperty Name="eng" ColumnName="eng" />
+          <ScalarProperty Name="kisw" ColumnName="kisw" />
+          <ScalarProperty Name="social" ColumnName="social" />
+          <ScalarProperty Name="sci" ColumnName="sci" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="examno" ColumnName="examno" />
+          <ScalarProperty Name="grammer" ColumnName="grammer" />
+          <ScalarProperty Name="reading" ColumnName="reading" />
+          <ScalarProperty Name="composition" ColumnName="composition" />
+          <ScalarProperty Name="lugha" ColumnName="lugha" />
+          <ScalarProperty Name="kusoma" ColumnName="kusoma" />
+          <ScalarProperty Name="insha" ColumnName="insha" />
+          <ScalarProperty Name="cre" ColumnName="cre" />
+          <ScalarProperty Name="C0MP" ColumnName="C0MP" />
+          <ScalarProperty Name="MUSIC" ColumnName="MUSIC" />
+          <ScalarProperty Name="SWIMMING" ColumnName="SWIMMING" />
+          <ScalarProperty Name="PE" ColumnName="PE" />
+          <ScalarProperty Name="examcode" ColumnName="examcode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rooms">
+      <EntityTypeMapping TypeName="schoolfeesModel.room">
+        <MappingFragment StoreEntitySet="rooms">
+          <ScalarProperty Name="room_id" ColumnName="room_id" />
+          <ScalarProperty Name="room_name" ColumnName="room_name" />
+          <ScalarProperty Name="room_code" ColumnName="room_code" />
+          <ScalarProperty Name="type_id" ColumnName="type_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="streams">
+      <EntityTypeMapping TypeName="schoolfeesModel.stream">
+        <MappingFragment StoreEntitySet="stream">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="strm_ids" ColumnName="strm_ids" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="student_class">
+      <EntityTypeMapping TypeName="schoolfeesModel.student_class">
+        <MappingFragment StoreEntitySet="student_class">
+          <ScalarProperty Name="admno" ColumnName="admno" />
+          <ScalarProperty Name="class_code" ColumnName="class_code" />
+          <ScalarProperty Name="str_code" ColumnName="str_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="student_fee">
+      <EntityTypeMapping TypeName="schoolfeesModel.student_fee">
+        <MappingFragment StoreEntitySet="student_fee">
+          <ScalarProperty Name="tr_id" ColumnName="tr_id" />
+          <ScalarProperty Name="admno" ColumnName="admno" />
+          <ScalarProperty Name="fee_id" ColumnName="fee_id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+          <ScalarProperty Name="datepaid" ColumnName="datepaid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="schoolfeesModel.student">
+        <MappingFragment StoreEntitySet="students">
+          <ScalarProperty Name="admno" ColumnName="admno" />
+          <ScalarProperty Name="regno" ColumnName="regno" />
+          <ScalarProperty Name="C_names" ColumnName=" names" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Birthno" ColumnName="Birthno" />
+          <ScalarProperty Name="adm_date" ColumnName="adm_date" />
+          <ScalarProperty Name="class_code" ColumnName="class_code" />
+          <ScalarProperty Name="str_code" ColumnName="str_code" />
+          <ScalarProperty Name="pic" ColumnName="pic" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subjects">
+      <EntityTypeMapping TypeName="schoolfeesModel.subject">
+        <MappingFragment StoreEntitySet="subject">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type_id" ColumnName="type_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subject_type">
+      <EntityTypeMapping TypeName="schoolfeesModel.subject_type">
+        <MappingFragment StoreEntitySet="subject_type">
+          <ScalarProperty Name="t_id" ColumnName="t_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teachers">
+      <EntityTypeMapping TypeName="schoolfeesModel.teacher">
+        <MappingFragment StoreEntitySet="teachers">
+          <ScalarProperty Name="national_id" ColumnName="national_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="emp_date" ColumnName="emp_date" />
+          <ScalarProperty Name="box" ColumnName="box" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="village" ColumnName="village" />
+          <ScalarProperty Name="p_code" ColumnName="p_code" />
+          <ScalarProperty Name="qualification" ColumnName="qualification" />
+          <ScalarProperty Name="year_out" ColumnName="year_out" />
+          <ScalarProperty Name="institution" ColumnName="institution" />
+          <ScalarProperty Name="pic" ColumnName="pic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tr_attendance">
+      <EntityTypeMapping TypeName="schoolfeesModel.tr_attendance">
+        <MappingFragment StoreEntitySet="tr_attendance">
+          <ScalarProperty Name="id_no" ColumnName="id_no" />
+          <ScalarProperty Name="tr_date" ColumnName="tr_date" />
+          <ScalarProperty Name="morning" ColumnName="morning" />
+          <ScalarProperty Name="afternoon" ColumnName="afternoon" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="track_time" ColumnName="track_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="types">
+      <EntityTypeMapping TypeName="schoolfeesModel.type">
+        <MappingFragment StoreEntitySet="type">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Type_Name" ColumnName="Type_Name" />
+          <ScalarProperty Name="category" ColumnName="category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_role">
+      <EntityTypeMapping TypeName="schoolfeesModel.user_role">
+        <MappingFragment StoreEntitySet="user_role">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="desc" ColumnName="desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="schoolfeesModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="lastupdate" ColumnName="lastupdate" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view4">
+      <EntityTypeMapping TypeName="schoolfeesModel.view4">
+        <MappingFragment StoreEntitySet="view4">
+          <ScalarProperty Name="ADMNO" ColumnName="ADMNO" />
+          <ScalarProperty Name="n" ColumnName="n" />
+          <ScalarProperty Name="m" ColumnName="m" />
+          <ScalarProperty Name="b" ColumnName="b" />
+          <ScalarProperty Name="AVG" ColumnName="AVG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

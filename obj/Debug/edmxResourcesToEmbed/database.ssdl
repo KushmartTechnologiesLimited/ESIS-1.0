@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="schoolfeesModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="schoolfeesModelStoreContainer">
+    <EntitySet Name="bill" EntityType="schoolfeesModel.Store.bill" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="class" EntityType="schoolfeesModel.Store.class" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="class_teacher" EntityType="schoolfeesModel.Store.class_teacher" store:Type="Tables" store:Schema="schoolfees" store:Name="class_teacher">
+      <DefiningQuery>SELECT
+      `class_teacher`.`national_id`, 
+      `class_teacher`.`class_code`, 
+      `class_teacher`.`stream_code`, 
+      `class_teacher`.`at`
+      FROM `class_teacher` AS `class_teacher`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="days" EntityType="schoolfeesModel.Store.days" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="desinate" EntityType="schoolfeesModel.Store.desinate" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="father" EntityType="schoolfeesModel.Store.father" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="fees accounting" EntityType="schoolfeesModel.Store.fees accounting" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="lesson" EntityType="schoolfeesModel.Store.lesson" store:Type="Tables" store:Schema="schoolfees" store:Name="lesson">
+      <DefiningQuery>SELECT
+      `lesson`.`block_id`, 
+      `lesson`.`room_id`, 
+      `lesson`.`d_no`, 
+      `lesson`.`day_no`
+      FROM `lesson` AS `lesson`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="marks" EntityType="schoolfeesModel.Store.marks" store:Type="Tables" store:Schema="schoolfees" store:Name="marks">
+      <DefiningQuery>SELECT
+      `marks`.`admno`, 
+      `marks`.`class_code`, 
+      `marks`.`year`, 
+      `marks`.`term`, 
+      `marks`.`Exam_no`, 
+      `marks`.`Subject_code`, 
+      `marks`.`score`, 
+      `marks`.`lastupdate`
+      FROM `marks` AS `marks`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="mother" EntityType="schoolfeesModel.Store.mother" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="parents" EntityType="schoolfeesModel.Store.parents" store:Type="Tables" store:Schema="schoolfees" store:Name="parents">
+      <DefiningQuery>SELECT
+      `parents`.`admno`, 
+      `parents`.`f_id_no`, 
+      `parents`.`id_no`
+      FROM `parents` AS `parents`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="rates" EntityType="schoolfeesModel.Store.rates" store:Type="Tables" store:Schema="schoolfees" store:Name="rates">
+      <DefiningQuery>SELECT
+      `rates`.`ID`, 
+      `rates`.`L_id`, 
+      `rates`.`T_id`, 
+      `rates`.`amount`, 
+      `rates`.`stamp`
+      FROM `rates` AS `rates`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="results" EntityType="schoolfeesModel.Store.results" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="rooms" EntityType="schoolfeesModel.Store.rooms" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="stream" EntityType="schoolfeesModel.Store.stream" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="student_class" EntityType="schoolfeesModel.Store.student_class" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="student_fee" EntityType="schoolfeesModel.Store.student_fee" store:Type="Tables" store:Schema="schoolfees" store:Name="student_fee">
+      <DefiningQuery>SELECT
+      `student_fee`.`tr_id`, 
+      `student_fee`.`admno`, 
+      `student_fee`.`fee_id`, 
+      `student_fee`.`amount`, 
+      `student_fee`.`status`, 
+      `student_fee`.`datecreated`, 
+      `student_fee`.`datepaid`
+      FROM `student_fee` AS `student_fee`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="students" EntityType="schoolfeesModel.Store.students" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="subject" EntityType="schoolfeesModel.Store.subject" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="subject_type" EntityType="schoolfeesModel.Store.subject_type" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="teachers" EntityType="schoolfeesModel.Store.teachers" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="tr_attendance" EntityType="schoolfeesModel.Store.tr_attendance" store:Type="Tables" store:Schema="schoolfees" store:Name="tr_attendance">
+      <DefiningQuery>SELECT
+      `tr_attendance`.`id_no`, 
+      `tr_attendance`.`tr_date`, 
+      `tr_attendance`.`morning`, 
+      `tr_attendance`.`afternoon`, 
+      `tr_attendance`.`reason`, 
+      `tr_attendance`.`track_time`
+      FROM `tr_attendance` AS `tr_attendance`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="type" EntityType="schoolfeesModel.Store.type" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="user_role" EntityType="schoolfeesModel.Store.user_role" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="users" EntityType="schoolfeesModel.Store.users" store:Type="Tables" Schema="schoolfees" />
+    <EntitySet Name="view4" EntityType="schoolfeesModel.Store.view4" store:Type="Tables" store:Schema="schoolfees" store:Name="view4">
+      <DefiningQuery>SELECT
+      `view4`.`ADMNO`, 
+      `view4`.`n`, 
+      `view4`.`m`, 
+      `view4`.`b`, 
+      `view4`.`AVG`
+      FROM `view4` AS `view4`</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="lesson_ibfk_2" Association="schoolfeesModel.Store.lesson_ibfk_2">
+      <End Role="rooms" EntitySet="rooms" />
+      <End Role="lesson" EntitySet="lesson" />
+    </AssociationSet>
+    <AssociationSet Name="rooms_ibfk_1" Association="schoolfeesModel.Store.rooms_ibfk_1">
+      <End Role="subject_type" EntitySet="subject_type" />
+      <End Role="rooms" EntitySet="rooms" />
+    </AssociationSet>
+    <AssociationSet Name="subject_ibfk_1" Association="schoolfeesModel.Store.subject_ibfk_1">
+      <End Role="subject_type" EntitySet="subject_type" />
+      <End Role="subject" EntitySet="subject" />
+    </AssociationSet>
+    <AssociationSet Name="users_ibfk_2" Association="schoolfeesModel.Store.users_ibfk_2">
+      <End Role="user_role" EntitySet="user_role" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="bill">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="year" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="term" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="class_id" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="admno" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="amount" Type="int" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="class">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="level" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'def.schoolfees.class_teacher' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="class_teacher">
+    <Key>
+      <PropertyRef Name="national_id" />
+      <PropertyRef Name="class_code" />
+      <PropertyRef Name="stream_code" />
+      <PropertyRef Name="at" />
+    </Key>
+    <Property Name="national_id" Type="int" Nullable="false" />
+    <Property Name="class_code" Type="int" Nullable="false" />
+    <Property Name="stream_code" Type="int" Nullable="false" />
+    <Property Name="at" Type="timestamp" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="days">
+    <Key>
+      <PropertyRef Name="day_no" />
+    </Key>
+    <Property Name="day_no" Type="int" Nullable="false" />
+    <Property Name="day" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="desinate">
+    <Key>
+      <PropertyRef Name="d_no" />
+    </Key>
+    <Property Name="d_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="tr_id_no" Type="int" Nullable="false" />
+    <Property Name="sub_code" Type="int" Nullable="false" />
+    <Property Name="class_code" Type="int" Nullable="false" />
+    <Property Name="str_code" Type="int" Nullable="false" />
+    <Property Name="updatetime" Type="timestamp" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="father">
+    <Key>
+      <PropertyRef Name="f_Id_No" />
+    </Key>
+    <Property Name="f_Id_No" Type="int" Nullable="false" />
+    <Property Name="names" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="tel" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="email" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="work" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="employer" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Resident_id" Type="varchar" Nullable="false" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="fees accounting">
+    <Key>
+      <PropertyRef Name="fees_id" />
+    </Key>
+    <Property Name="admno" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="Details" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="Method" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="acc_Name" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="Acc_no" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="Tran_no" Type="int" Nullable="false" />
+    <Property Name="amount" Type="int" Nullable="false" />
+    <Property Name="payable" Type="int" Nullable="false" />
+    <Property Name="balance" Type="int" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="datestamp" Type="timestamp" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fees_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'def.schoolfees.lesson' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="lesson">
+    <Key>
+      <PropertyRef Name="block_id" />
+      <PropertyRef Name="room_id" />
+      <PropertyRef Name="d_no" />
+      <PropertyRef Name="day_no" />
+    </Key>
+    <Property Name="block_id" Type="int" Nullable="false" />
+    <Property Name="room_id" Type="int" Nullable="false" />
+    <Property Name="d_no" Type="int" Nullable="false" />
+    <Property Name="day_no" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'def.schoolfees.marks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="marks">
+    <Key>
+      <PropertyRef Name="admno" />
+      <PropertyRef Name="class_code" />
+      <PropertyRef Name="year" />
+      <PropertyRef Name="term" />
+      <PropertyRef Name="Exam_no" />
+      <PropertyRef Name="Subject_code" />
+      <PropertyRef Name="score" />
+      <PropertyRef Name="lastupdate" />
+    </Key>
+    <Property Name="admno" Type="int" Nullable="false" />
+    <Property Name="class_code" Type="int" Nullable="false" />
+    <Property Name="year" Type="int" Nullable="false" />
+    <Property Name="term" Type="int" Nullable="false" />
+    <Property Name="Exam_no" Type="int" Nullable="false" />
+    <Property Name="Subject_code" Type="int" Nullable="false" />
+    <Property Name="score" Type="int" Nullable="false" />
+    <Property Name="lastupdate" Type="timestamp" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="mother">
+    <Key>
+      <PropertyRef Name="Id_No" />
+    </Key>
+    <Property Name="Id_No" Type="int" Nullable="false" />
+    <Property Name="names" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="tel" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="email" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="work" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="employer" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="resident_id" Type="varchar" Nullable="false" MaxLength="70" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'def.schoolfees.parents' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="parents">
+    <Key>
+      <PropertyRef Name="admno" />
+      <PropertyRef Name="f_id_no" />
+      <PropertyRef Name="id_no" />
+    </Key>
+    <Property Name="admno" Type="int" Nullable="false" />
+    <Property Name="f_id_no" Type="int" Nullable="false" />
+    <Property Name="id_no" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'def.schoolfees.rates' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="rates">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="L_id" />
+      <PropertyRef Name="T_id" />
+      <PropertyRef Name="amount" />
+      <PropertyRef Name="stamp" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="L_id" Type="int" Nullable="false" />
+    <Property Name="T_id" Type="int" Nullable="false" />
+    <Property Name="amount" Type="int" Nullable="false" />
+    <Property Name="stamp" Type="timestamp" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="results">
+    <Key>
+      <PropertyRef Name="examno" />
+    </Key>
+    <Property Name="admNo" Type="int" Nullable="false" />
+    <Property Name="class" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="year" Type="int" Nullable="false" />
+    <Property Name="term" Type="int" Nullable="false" />
+    <Property Name="exam" Type="int" Nullable="false" />
+    <Property Name="maths" Type="int" />
+    <Property Name="eng" Type="int" />
+    <Property Name="kisw" Type="int" />
+    <Property Name="social" Type="int" />
+    <Property Name="sci" Type="int" />
+    <Property Name="total" Type="int" />
+    <Property Name="position" Type="bit" />
+    <Property Name="examno" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="grammer" Type="int" Nullable="false" />
+    <Property Name="reading" Type="int" Nullable="false" />
+    <Property Name="composition" Type="int" Nullable="false" />
+    <Property Name="lugha" Type="int" Nullable="false" />
+    <Property Name="kusoma" Type="int" Nullable="false" />
+    <Property Name="insha" Type="int" Nullable="false" />
+    <Property Name="cre" Type="int" Nullable="false" />
+    <Property Name="C0MP" Type="int" Nullable="false" />
+    <Property Name="MUSIC" Type="int" Nullable="false" />
+    <Property Name="SWIMMING" Type="int" Nullable="false" />
+    <Property Name="PE" Type="int" Nullable="false" />
+    <Property Name="examcode" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rooms">
+    <Key>
+      <PropertyRef Name="room_id" />
+    </Key>
+    <Property Name="room_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="room_name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="room_code" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="type_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stream">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="strm_ids" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="student_class">
+    <Key>
+      <PropertyRef Name="admno" />
+    </Key>
+    <Property Name="admno" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="class_code" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="str_code" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'def.schoolfees.student_fee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="student_fee">
+    <Key>
+      <PropertyRef Name="admno" />
+      <PropertyRef Name="fee_id" />
+      <PropertyRef Name="amount" />
+      <PropertyRef Name="status" />
+      <PropertyRef Name="datecreated" />
+      <PropertyRef Name="datepaid" />
+    </Key>
+    <Property Name="tr_id" Type="int" />
+    <Property Name="admno" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="fee_id" Type="int" Nullable="false" />
+    <Property Name="amount" Type="int" Nullable="false" />
+    <Property Name="status" Type="bool" Nullable="false" />
+    <Property Name="datecreated" Type="date" Nullable="false" />
+    <Property Name="datepaid" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="students">
+    <Key>
+      <PropertyRef Name="regno" />
+    </Key>
+    <Property Name="admno" Type="varchar" MaxLength="53" />
+    <Property Name="regno" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name=" names" Type="varchar" MaxLength="200" />
+    <Property Name="gender" Type="varchar" MaxLength="20" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="Birthno" Type="varchar" MaxLength="52" />
+    <Property Name="adm_date" Type="datetime" />
+    <Property Name="class_code" Type="varchar" MaxLength="10" />
+    <Property Name="str_code" Type="varchar" MaxLength="10" />
+    <Property Name="pic" Type="varchar" MaxLength="200" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="subject">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="60" />
+    <Property Name="description" Type="varchar" MaxLength="150" />
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="type_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="subject_type">
+    <Key>
+      <PropertyRef Name="t_id" />
+    </Key>
+    <Property Name="t_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="teachers">
+    <Key>
+      <PropertyRef Name="national_id" />
+    </Key>
+    <Property Name="national_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="gender" Type="varchar" Nullable="false" MaxLength="6" />
+    <Property Name="tel" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="email" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="emp_date" Type="date" Nullable="false" />
+    <Property Name="box" Type="int" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="village" Type="varchar" MaxLength="50" />
+    <Property Name="p_code" Type="varchar" MaxLength="50" />
+    <Property Name="qualification" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="year_out" Type="year" Nullable="false" />
+    <Property Name="institution" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="pic" Type="varchar" MaxLength="2000" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'def.schoolfees.tr_attendance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="tr_attendance">
+    <Key>
+      <PropertyRef Name="id_no" />
+      <PropertyRef Name="tr_date" />
+      <PropertyRef Name="morning" />
+      <PropertyRef Name="afternoon" />
+      <PropertyRef Name="track_time" />
+    </Key>
+    <Property Name="id_no" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="tr_date" Type="date" Nullable="false" />
+    <Property Name="morning" Type="varchar" Nullable="false" MaxLength="3" />
+    <Property Name="afternoon" Type="varchar" Nullable="false" MaxLength="3" />
+    <Property Name="reason" Type="varchar" />
+    <Property Name="track_time" Type="timestamp" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Type_Name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="category" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="user_role">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="desc" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="password" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="created" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="lastupdate" Type="timestamp" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="status" Type="bool" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'def.schoolfees.view4' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="view4">
+    <Key>
+      <PropertyRef Name="ADMNO" />
+    </Key>
+    <Property Name="ADMNO" Type="int" Nullable="false" />
+    <Property Name="n" Type="decimal" Precision="32" />
+    <Property Name="m" Type="decimal" Precision="32" />
+    <Property Name="b" Type="decimal" Precision="32" />
+    <Property Name="AVG" Type="decimal" Precision="38" Scale="4" />
+  </EntityType>
+  <Association Name="lesson_ibfk_2">
+    <End Role="rooms" Type="schoolfeesModel.Store.rooms" Multiplicity="1" />
+    <End Role="lesson" Type="schoolfeesModel.Store.lesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rooms">
+        <PropertyRef Name="room_id" />
+      </Principal>
+      <Dependent Role="lesson">
+        <PropertyRef Name="room_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rooms_ibfk_1">
+    <End Role="subject_type" Type="schoolfeesModel.Store.subject_type" Multiplicity="1" />
+    <End Role="rooms" Type="schoolfeesModel.Store.rooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subject_type">
+        <PropertyRef Name="t_id" />
+      </Principal>
+      <Dependent Role="rooms">
+        <PropertyRef Name="type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="subject_ibfk_1">
+    <End Role="subject_type" Type="schoolfeesModel.Store.subject_type" Multiplicity="1" />
+    <End Role="subject" Type="schoolfeesModel.Store.subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subject_type">
+        <PropertyRef Name="t_id" />
+      </Principal>
+      <Dependent Role="subject">
+        <PropertyRef Name="type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="users_ibfk_2">
+    <End Role="user_role" Type="schoolfeesModel.Store.user_role" Multiplicity="1" />
+    <End Role="users" Type="schoolfeesModel.Store.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user_role">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

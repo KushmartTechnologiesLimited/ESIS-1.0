@@ -1,0 +1,22 @@
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\bin\Debug\WindowsApplication.exe.config
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS v.2.csprojResolveAssemblyReference.cache
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS.appointment.appointdash.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS.appoint_create.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS.Dashboard.Dashboards.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS.Dashboard.LogIn.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS.Finances.PaymentDetails.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS.Finances.RecordTransaction.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS.main.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS_v._2.Properties.Resources.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS.Registration.StudentDetails.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS.rooms.roomadd.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS.rooms.roomdash.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS.timetable.timetable.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS.visitors.visitor.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS.visitors.visitoradd.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\ESIS v.2.csproj.GenerateResource.Cache
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\bin\Debug\WindowsApplication.exe
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\bin\Debug\WindowsApplication.pdb
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\bin\Debug\MySql.Data.dll
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\WindowsApplication.exe
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\x86\Debug\WindowsApplication.pdb
