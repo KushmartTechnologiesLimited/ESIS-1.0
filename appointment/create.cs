@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ESIS.appointment;
+using ESIS.Appointment;
 using MySql.Data.MySqlClient;  //Its for MySQL.
 namespace ESIS
 {

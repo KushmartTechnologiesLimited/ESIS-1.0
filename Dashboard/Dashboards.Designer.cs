@@ -52,6 +52,7 @@
             this.eventsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.libraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addFeesItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sMSServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.frontDeskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -60,6 +61,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.billStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.advanceClassesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configureClassesAndStreamsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.billSingleStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,7 +86,7 @@
             this.frontDeskToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1370, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1362, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -244,9 +249,22 @@
             // 
             // configurationToolStripMenuItem
             // 
+            this.configurationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addFeesItemToolStripMenuItem,
+            this.billStudentsToolStripMenuItem,
+            this.advanceClassesToolStripMenuItem,
+            this.configureClassesAndStreamsToolStripMenuItem});
             this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
             this.configurationToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
             this.configurationToolStripMenuItem.Text = "Configuration";
+            this.configurationToolStripMenuItem.Click += new System.EventHandler(this.configurationToolStripMenuItem_Click);
+            // 
+            // addFeesItemToolStripMenuItem
+            // 
+            this.addFeesItemToolStripMenuItem.Name = "addFeesItemToolStripMenuItem";
+            this.addFeesItemToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
+            this.addFeesItemToolStripMenuItem.Text = "Add Fees Item";
+            this.addFeesItemToolStripMenuItem.Click += new System.EventHandler(this.addFeesItemToolStripMenuItem_Click);
             // 
             // sMSServiceToolStripMenuItem
             // 
@@ -266,9 +284,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 728);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 720);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1370, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1362, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
@@ -318,12 +336,39 @@
             this.button1.Text = "Manage Users";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // billStudentsToolStripMenuItem
+            // 
+            this.billStudentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.billSingleStudentToolStripMenuItem});
+            this.billStudentsToolStripMenuItem.Name = "billStudentsToolStripMenuItem";
+            this.billStudentsToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
+            this.billStudentsToolStripMenuItem.Text = "Bill Students";
+            this.billStudentsToolStripMenuItem.Click += new System.EventHandler(this.billStudentsToolStripMenuItem_Click);
+            // 
+            // advanceClassesToolStripMenuItem
+            // 
+            this.advanceClassesToolStripMenuItem.Name = "advanceClassesToolStripMenuItem";
+            this.advanceClassesToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
+            this.advanceClassesToolStripMenuItem.Text = "Advance Classes";
+            // 
+            // configureClassesAndStreamsToolStripMenuItem
+            // 
+            this.configureClassesAndStreamsToolStripMenuItem.Name = "configureClassesAndStreamsToolStripMenuItem";
+            this.configureClassesAndStreamsToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
+            this.configureClassesAndStreamsToolStripMenuItem.Text = "Configure Classes and Streams";
+            // 
+            // billSingleStudentToolStripMenuItem
+            // 
+            this.billSingleStudentToolStripMenuItem.Name = "billSingleStudentToolStripMenuItem";
+            this.billSingleStudentToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.billSingleStudentToolStripMenuItem.Text = "Bill Single Student";
+            // 
             // Dashboards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1370, 750);
+            this.ClientSize = new System.Drawing.Size(1362, 742);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -376,5 +421,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem paymentHistoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem frontDeskToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addFeesItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem billStudentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem advanceClassesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configureClassesAndStreamsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem billSingleStudentToolStripMenuItem;
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ESIS.Base_classes;
 using ESIS.Dashboard;
+using System.Reflection;
 
 namespace ESIS.Finances
 {
@@ -35,6 +36,21 @@ namespace ESIS.Finances
         {
             students = database.studentDetails("select distinct studentsname as Name, paymentFor as 'Payment For' , paymentMethod as 'Payment Method',methoddetails as 'Payment Method Details', AmountPaid as 'Amount paid' ,Balance, datepaid as 'Date Paid', datestamp as 'Date Entered' , transactedBy as 'Processed By'  from students,transactionhistory where students.registrationnumber=transactionhistory.registrationnumber order by dateentered desc");
             feeDataGrid.DataSource = students.Tables[0];
+            feeDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+       
+            //for (int i = 0; i < feeDataGrid.Columns.Count - 1; i++)
+            //{
+            //    feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            //}
+            //feeDataGrid.Columns[feeDataGrid.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            //for (int i = 0; i < feeDataGrid.Columns.Count; i++)
+            //{
+            //    int colw = feeDataGrid.Columns[i].Width;
+            //    feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            //    feeDataGrid.Columns[i].Width = colw;
+            //}
+           
             string user = database.UserName;
             userNameLabel.Text = user;
             
@@ -56,6 +72,18 @@ namespace ESIS.Finances
             {
                 students = database.studentDetails("select studentsname as Name, paymentFor as 'Payment For' , paymentMethod as 'Payment Method',methoddetails as 'Payment Method Details', AmountPaid as 'Amount paid' ,Balance, datepaid as 'Date Paid', datestamp as 'Date Entered' , transactedBy as 'Processed By'  from students,transactionhistory where students.registrationnumber=transactionhistory.registrationnumber and students.registrationnumber = '" + admNo + "'");
                 feeDataGrid.DataSource = students.Tables[0];
+                for (int i = 0; i < feeDataGrid.Columns.Count - 1; i++)
+                {
+                    feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                }
+                feeDataGrid.Columns[feeDataGrid.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                for (int i = 0; i < feeDataGrid.Columns.Count; i++)
+                {
+                    int colw = feeDataGrid.Columns[i].Width;
+                    feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    feeDataGrid.Columns[i].Width = colw;
+                }
             }
             
             
@@ -69,6 +97,18 @@ namespace ESIS.Finances
             {
                 students = database.studentDetails("select studentsname as Name, paymentFor as 'Payment For' , paymentMethod as 'Payment Method',methoddetails as 'Payment Method Details', AmountPaid as 'Amount paid' ,Balance, datepaid as 'Date Paid', datestamp as 'Date Entered' , transactedBy as 'Processed By' from students,transactionhistory where students.registrationnumber=transactionhistory.registrationnumber and transactionhistory.PaymentFor= '" + item + "'");
                 feeDataGrid.DataSource = students.Tables[0];
+                for (int i = 0; i < feeDataGrid.Columns.Count - 1; i++)
+                {
+                    feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                }
+                feeDataGrid.Columns[feeDataGrid.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                for (int i = 0; i < feeDataGrid.Columns.Count; i++)
+                {
+                    int colw = feeDataGrid.Columns[i].Width;
+                    feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    feeDataGrid.Columns[i].Width = colw;
+                }
             }
             
         }
@@ -80,6 +120,18 @@ namespace ESIS.Finances
 
             students = database.studentDetails("select studentsname as Name, paymentFor as 'Payment For' , paymentMethod as 'Payment Method',methoddetails as 'Payment Method Details', AmountPaid as 'Amount paid' ,Balance, datepaid as 'Date Paid', datestamp as 'Date Entered' , transactedBy as 'Processed By'  from students,transactionhistory where students.registrationnumber=transactionhistory.registrationnumber and datepaid='" + date1 + "'");
                 feeDataGrid.DataSource = students.Tables[0];
+                for (int i = 0; i < feeDataGrid.Columns.Count - 1; i++)
+                {
+                    feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                }
+                feeDataGrid.Columns[feeDataGrid.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                for (int i = 0; i < feeDataGrid.Columns.Count; i++)
+                {
+                    int colw = feeDataGrid.Columns[i].Width;
+                    feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    feeDataGrid.Columns[i].Width = colw;
+                }
             
             
             
@@ -100,11 +152,35 @@ namespace ESIS.Finances
             {
                 students = database.studentDetails("select studentsname as Name, paymentFor as 'Payment For' , paymentMethod as 'Payment Method',methoddetails as 'Payment Method Details', AmountPaid as 'Amount paid' ,Balance, datepaid as 'Date Paid', datestamp as 'Date Entered' , transactedBy as 'Processed By'  from students,transactionhistory where students.registrationnumber=transactionhistory.registrationnumber and datepaid >= " + date1 + " and datepaid <= " + date2);
                 feeDataGrid.DataSource = students.Tables[0];
+                for (int i = 0; i < feeDataGrid.Columns.Count - 1; i++)
+                {
+                    feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                }
+                feeDataGrid.Columns[feeDataGrid.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                for (int i = 0; i < feeDataGrid.Columns.Count; i++)
+                {
+                    int colw = feeDataGrid.Columns[i].Width;
+                    feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    feeDataGrid.Columns[i].Width = colw;
+                }
             }
             else
             {
                 students = database.studentDetails("select studentsname as Name, paymentFor as 'Payment For' , paymentMethod as 'Payment Method',methoddetails as 'Payment Method Details', AmountPaid as 'Amount paid' ,Balance, datepaid as 'Date Paid', datestamp as 'Date Entered' , transactedBy as 'Processed By'  from students,transactionhistory where students.registrationnumber=transactionhistory.registrationnumber and datepaid = " + date2);
                 feeDataGrid.DataSource = students.Tables[0];
+                for (int i = 0; i < feeDataGrid.Columns.Count - 1; i++)
+                {
+                    feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                }
+                feeDataGrid.Columns[feeDataGrid.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                for (int i = 0; i < feeDataGrid.Columns.Count; i++)
+                {
+                    int colw = feeDataGrid.Columns[i].Width;
+                    feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    feeDataGrid.Columns[i].Width = colw;
+                }
             }
            
         }
@@ -118,6 +194,19 @@ namespace ESIS.Finances
             dateTimePicker2.Text = "";
             students = database.studentDetails("select studentsname as Name, paymentFor as 'Payment For' , paymentMethod as 'Payment Method',methoddetails as 'Payment Method Details', AmountPaid as 'Amount paid' ,Balance, datepaid as 'Date Paid', datestamp as 'Date Entered' , transactedBy as 'Processed By'  from students,transactionhistory where students.registrationnumber=transactionhistory.registrationnumber group by name order by 'date entered' desc ");
             feeDataGrid.DataSource = students.Tables[0];
+            for (int i = 0; i < feeDataGrid.Columns.Count - 1; i++)
+            {
+                feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+            feeDataGrid.Columns[feeDataGrid.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            for (int i = 0; i < feeDataGrid.Columns.Count; i++)
+            {
+                int colw = feeDataGrid.Columns[i].Width;
+                feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                feeDataGrid.Columns[i].Width = colw;
+            }
+            
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -128,5 +217,104 @@ namespace ESIS.Finances
             this.Close();
             
         }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            string query = "select studentsname as Name, paymentFor as 'Payment For' , paymentMethod as 'Payment Method',methoddetails as 'Payment Method Details', AmountPaid as 'Amount paid' ,Balance, datepaid as 'Date Paid', datestamp as 'Date Entered' , transactedBy as 'Processed By'  from students,transactionhistory where students.registrationnumber=transactionhistory.registrationnumber";
+            string admNo; string item;
+            if (admNoCheckBox.Checked)
+            {
+                admNo=admNoTextBox.Text;
+                if (admNo != "")
+                {
+                    query += " and students.registrationnumber = '" + admNo + "'";
+                }
+                else
+                    query = "";
+            
+            }
+             if (itemCheckBox.Checked && query!="")
+            {
+                item = feesItemComboBox.Text;
+                if (item != "")
+                {
+                    query +=  " and transactionhistory.PaymentFor= '" + item + "'";
+
+                }
+                else
+                    query = "";
+
+            }
+           if (fromDateCheckBox.Checked && query != "")
+            {
+                string date1 = dateTimePicker1.Text;
+                if (date1 != "")
+                {
+                    query += " and datepaid='" + date1 + "'";
+                    
+            
+                }
+                else
+                    query = "";
+            }
+           if (toDateCheckbox.Checked && query != "")
+            {
+                string date2 = dateTimePicker2.Text;
+                string date1 = dateTimePicker1.Text;
+
+
+                if (date1 != null && date2 != null)
+                {
+                    query +=" and datepaid >= " + date1 + " and datepaid <= " + date2;
+                    
+                }
+                else
+                {
+                    query += " and datepaid = " + date2;
+                  
+                }
+           
+            }
+            if (query != "")
+            {
+                students = database.studentDetails(query);
+                feeDataGrid.DataSource = students.Tables[0];
+                for (int i = 0; i < feeDataGrid.Columns.Count - 1; i++)
+                {
+                    feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                }
+                feeDataGrid.Columns[feeDataGrid.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                for (int i = 0; i < feeDataGrid.Columns.Count; i++)
+                {
+                    int colw = feeDataGrid.Columns[i].Width;
+                    feeDataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    feeDataGrid.Columns[i].Width = colw;
+                }
+            }
+            else
+            { MessageBox.Show("All fields selected are not filled"); }
+        }
+
+        private void feeDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void feeDataGrid_AutoSizeColumnsModeChanged(object sender, DataGridViewAutoSizeColumnsModeEventArgs e)
+        {
+
+        }
+
+        private void feeDataGrid_DataSourceChanged(object sender, EventArgs e)
+        {
+            
+        }
+        
     }
 }

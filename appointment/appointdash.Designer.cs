@@ -1,4 +1,4 @@
-﻿namespace ESIS.appointment
+﻿namespace ESIS.Appointment
 {
     partial class appointdash
     {

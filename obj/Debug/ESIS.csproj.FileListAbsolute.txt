@@ -22,3 +22,10 @@
 \\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\Debug\ESIS.csproj.GenerateResource.Cache
 \\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\Debug\ESIS.exe
 \\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\Debug\ESIS.pdb
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\Debug\ESIS.csprojResolveAssemblyReference.cache
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\Debug\ESIS.Config.FeeItemAdd.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\Debug\ESIS.Config.FeesItem.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\bin\Debug\MySql.Data.Entity.dll
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\bin\Debug\MySql.Data.Entity.EF6.dll
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\Debug\ESIS.Registration.RegisterStudent.resources
+\\KUSH-PC\Users\Public\New folderschool\2 nov 2014 latest source code\easy school\ESIS\obj\Debug\ESIS.Config.BillStudents.resources

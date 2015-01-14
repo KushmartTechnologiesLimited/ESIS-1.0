@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using ESIS.Base_classes;
 using ESIS.Registration;
 using ESIS.Finances;
-
+using ESIS.Config;
 namespace ESIS.Dashboard
 {
     public partial class Dashboards : Form
@@ -110,6 +110,26 @@ namespace ESIS.Dashboard
         private void sMSServiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void configurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addFeesItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FeesItem a = new FeesItem();
+            
+            a.ShowDialog();
+        }
+
+        private void billStudentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BillStudents student = new BillStudents();
+            this.Hide();
+           student.ShowDialog();
+           this.Show();
         }
     }
 }

@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using ESIS;
-using ESIS.appointment;
 
-namespace ESIS.appointment
+
+namespace ESIS.Appointment
 {
     public partial class appointdash : Form
     {

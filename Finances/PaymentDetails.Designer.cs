@@ -46,9 +46,17 @@
             this.clearButton = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.findButton = new System.Windows.Forms.Button();
+            this.toDateCheckbox = new System.Windows.Forms.CheckBox();
+            this.fromDateCheckBox = new System.Windows.Forms.CheckBox();
+            this.itemCheckBox = new System.Windows.Forms.CheckBox();
+            this.admNoCheckBox = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.feeDataGrid)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -113,11 +121,13 @@
             // feeDataGrid
             // 
             this.feeDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.feeDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.feeDataGrid.Location = new System.Drawing.Point(0, 24);
+            this.feeDataGrid.Location = new System.Drawing.Point(31, 29);
             this.feeDataGrid.Name = "feeDataGrid";
-            this.feeDataGrid.Size = new System.Drawing.Size(1370, 254);
+            this.feeDataGrid.Size = new System.Drawing.Size(945, 251);
             this.feeDataGrid.TabIndex = 4;
+            this.feeDataGrid.AutoSizeColumnsModeChanged += new System.Windows.Forms.DataGridViewAutoSizeColumnsModeEventHandler(this.feeDataGrid_AutoSizeColumnsModeChanged);
+            this.feeDataGrid.DataSourceChanged += new System.EventHandler(this.feeDataGrid_DataSourceChanged);
+            this.feeDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.feeDataGrid_CellContentClick);
             // 
             // label1
             // 
@@ -205,11 +215,86 @@
             this.label4.Text = "To";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.findButton);
+            this.panel1.Controls.Add(this.toDateCheckbox);
+            this.panel1.Controls.Add(this.fromDateCheckBox);
+            this.panel1.Controls.Add(this.itemCheckBox);
+            this.panel1.Controls.Add(this.admNoCheckBox);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Location = new System.Drawing.Point(1026, 39);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(322, 202);
+            this.panel1.TabIndex = 14;
+            // 
+            // findButton
+            // 
+            this.findButton.Location = new System.Drawing.Point(111, 132);
+            this.findButton.Name = "findButton";
+            this.findButton.Size = new System.Drawing.Size(79, 23);
+            this.findButton.TabIndex = 5;
+            this.findButton.Text = "Find";
+            this.findButton.UseVisualStyleBackColor = true;
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
+            // 
+            // toDateCheckbox
+            // 
+            this.toDateCheckbox.AutoSize = true;
+            this.toDateCheckbox.Location = new System.Drawing.Point(191, 95);
+            this.toDateCheckbox.Name = "toDateCheckbox";
+            this.toDateCheckbox.Size = new System.Drawing.Size(63, 17);
+            this.toDateCheckbox.TabIndex = 4;
+            this.toDateCheckbox.Text = "To date";
+            this.toDateCheckbox.UseVisualStyleBackColor = true;
+            this.toDateCheckbox.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            // 
+            // fromDateCheckBox
+            // 
+            this.fromDateCheckBox.AutoSize = true;
+            this.fromDateCheckBox.Location = new System.Drawing.Point(40, 95);
+            this.fromDateCheckBox.Name = "fromDateCheckBox";
+            this.fromDateCheckBox.Size = new System.Drawing.Size(73, 17);
+            this.fromDateCheckBox.TabIndex = 3;
+            this.fromDateCheckBox.Text = "From date";
+            this.fromDateCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // itemCheckBox
+            // 
+            this.itemCheckBox.AutoSize = true;
+            this.itemCheckBox.Location = new System.Drawing.Point(191, 58);
+            this.itemCheckBox.Name = "itemCheckBox";
+            this.itemCheckBox.Size = new System.Drawing.Size(72, 17);
+            this.itemCheckBox.TabIndex = 2;
+            this.itemCheckBox.Text = "Fees Item";
+            this.itemCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // admNoCheckBox
+            // 
+            this.admNoCheckBox.AutoSize = true;
+            this.admNoCheckBox.Location = new System.Drawing.Point(40, 55);
+            this.admNoCheckBox.Name = "admNoCheckBox";
+            this.admNoCheckBox.Size = new System.Drawing.Size(64, 17);
+            this.admNoCheckBox.TabIndex = 1;
+            this.admNoCheckBox.Text = "Adm No";
+            this.admNoCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(19, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(181, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Specialise your query";
+            // 
             // PaymentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 300);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.clearButton);
@@ -232,6 +317,8 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.feeDataGrid)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,5 +343,12 @@
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button findButton;
+        private System.Windows.Forms.CheckBox toDateCheckbox;
+        private System.Windows.Forms.CheckBox fromDateCheckBox;
+        private System.Windows.Forms.CheckBox itemCheckBox;
+        private System.Windows.Forms.CheckBox admNoCheckBox;
+        private System.Windows.Forms.Label label5;
     }
 }

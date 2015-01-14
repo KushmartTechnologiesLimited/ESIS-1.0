@@ -147,6 +147,7 @@
             this.nameComboBox.Name = "nameComboBox";
             this.nameComboBox.Size = new System.Drawing.Size(289, 21);
             this.nameComboBox.TabIndex = 11;
+            this.nameComboBox.SelectedIndexChanged += new System.EventHandler(this.nameComboBox_SelectedIndexChanged);
             // 
             // SelectButton
             // 

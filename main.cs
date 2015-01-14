@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ESIS;
 using ESIS.visitors;
-using ESIS.appointment;
+using ESIS.Appointment;
 using ESIS.rooms;
 
 namespace ESIS

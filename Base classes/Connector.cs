@@ -256,7 +256,7 @@ namespace ESIS.Base_classes
                 cmd.Connection = connection;
                 cmd.CommandText = query;
                 cmd.Prepare();
-                cmd.Parameters.AddWithValue("@Name",user);
+                cmd.Parameters.AddWithValue("@Name", user);
                 cmd.Parameters.AddWithValue("@Password", password);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -273,11 +273,11 @@ namespace ESIS.Base_classes
                     {
                         list[0].Add(dataReader["username"] + "");
                         list[1].Add(dataReader["password"] + "");
-                        
-                        
-                        
+
+
+
                     }
-                                     
+
                 }
                 dataReader.Close();
                 this.CloseConnection();
@@ -288,11 +288,11 @@ namespace ESIS.Base_classes
                 }
 
                 MessageBox.Show("Incorrect username or password");
-                
+
                 return false;
 
                 //close Data Reader
-                
+
                 //int answer=cmd.ExecuteNonQuery();
                 //this.CloseConnection();
                 //if (answer == 0)
@@ -302,7 +302,11 @@ namespace ESIS.Base_classes
                 //}
                 //else if (answer == 1)
                 //{ return true; }
-               
+
+            }
+            else
+            {
+                MessageBox.Show("Cannot connect to the database");
             }
             return false;
         }
@@ -440,6 +444,105 @@ namespace ESIS.Base_classes
             {
                 MessageBox.Show("Error , unable to backup!");
             }
+        }
+        public bool billStudents(List<Tuple<string,string>> classStream,List<Tuple<string,string>> item)
+        {
+            bool result = false;
+            string date = DateTime.Now.ToString("yyyy-MM-dd");
+            bool all = false;
+            string query = "insert into transactionhistory (registrationnumber,amountpaid,paymentfor,paymentmethod,datepaid,transactedby) ";
+            List<string> classes = new List<string>();
+            List<string> streams = new List<string>();
+            foreach (var a in classStream)
+            {
+                if (a.Item1 == "All" && a.Item2 == "All")
+                {
+                    all = true;
+                    break;
+                }
+                classes.Add(a.Item1);
+                streams.Add(a.Item2);
+            }
+            string cs = @"server=localhost;userid=school;
+            password=incorrect;database='school details'";
+            MySqlConnection conn = null;
+            MySqlTransaction tr = null;
+
+            try
+            {
+                conn = new MySqlConnection(cs);
+                conn.Open();
+                tr = conn.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.Transaction = tr;
+                
+                foreach (var list in item)
+                {
+                    query = "insert into transactionhistory (registrationnumber,amountpaid,paymentfor,paymentmethod,datepaid,transactedby) ";
+                    var value1 = list.Item1;
+                    var value2 = list.Item2;
+                    if (all)
+                    {
+
+                        query += "SELECT registrationNumber, '-" + value2 + "','" + value1 + "','" + "Billing','" + date + "','" + userName + "' FROM students WHERE status = 1";
+                        //Create and call a method
+                        cmd.CommandText = query;
+                        cmd.ExecuteNonQuery();
+                        //MessageBox.Show(query);
+
+                    }
+                    else
+                    {
+                        for (int counter = 0; counter < classes.Count; counter++)
+                        {
+                            query = "insert into transactionhistory (registrationnumber,amountpaid,paymentfor,paymentmethod,datepaid,transactedby) ";
+                            query += "SELECT registrationNumber, '-" + value2 + "','" + value1 + "','" + "Billing','" + date + "','" + userName + "' FROM students WHERE status = 1 and academicLevel='"+classes[counter]+ "' and stream ='" + streams[counter] + "'";
+                            //Create and call a method
+                            cmd.CommandText = query;
+                            cmd.ExecuteNonQuery();
+                            //MessageBox.Show(query);
+                        }
+ 
+                    }
+                    
+                    
+                    
+                }
+
+                
+
+
+                tr.Commit();
+                MessageBox.Show("Success!");
+                
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+
+                }
+                catch (MySqlException ex1)
+                {
+                    MessageBox.Show( ex1.ToString());
+                }
+
+                MessageBox.Show( ex.ToString());
+
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            
+            return result;
+        
         }
 
         //Restore

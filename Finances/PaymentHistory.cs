@@ -129,5 +129,10 @@ namespace ESIS.Finances
             admNoRadioButton.Visible = true;
             nameRadioButton.Visible = true;
         }
+
+        private void nameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
